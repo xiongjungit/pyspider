@@ -1,4 +1,4 @@
-#python爬虫数据保存到数据库并展示
+# python爬虫数据保存到数据库并展示
 
 python从网上爬取数据后结果保存到文本文件中，然后从文本文件导入到mysql数据库中，最后用php展示出来。
 
@@ -180,7 +180,7 @@ if __name__ == "__main__":
 
 ```
 
-##2. 创建mysql数据库和表
+## 2. 创建mysql数据库和表
 
 ```
 drop database if exists `pyspider`;
@@ -200,7 +200,7 @@ CREATE TABLE `xmpic` (
 
 ```
 
-##3. 展示php文件 index.php (自带css样式)
+## 3. 展示php文件 index.php (自带css样式)
 
 ```
 <?php
@@ -457,6 +457,6 @@ echo " <span>当前{$page}/{$maxpage}页   共{$totalnum}条</span>";
 </html>
 ```
 
-##4. 展示结果截图
+## 4. 展示结果截图
 
 ![](./show.png)
