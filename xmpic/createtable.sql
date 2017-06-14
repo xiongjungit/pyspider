@@ -1,0 +1,11 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+DROP TABLE IF EXISTS `xmpic`;
+CREATE TABLE `xmpic` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `url` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+  `dir` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+  `size` varchar(255) NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
