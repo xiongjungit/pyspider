@@ -590,7 +590,7 @@ a:active {color: #0000FF} /* 选定的链接 */
 <tr>
 <?php 
 $thumbnail = str_replace('/w965/','/h160/',$row[url]);
-echo '<td style="bgcolor:#ff6700"><a href="'.$row[url].'" target="_blank"><img src="'.$thumbnail.'"></a></td>';
+echo '<td style="bgcolor:#ff6700"><a href="'.$row[url].'" title="'.$row[title].'" target="_blank"><img src="'.$thumbnail.'"></a></td>';
 ?>
 </tr>
 <?php }?>
