@@ -30,8 +30,7 @@ $sql="select * from xmpic $where ";
 $result=mysql_query($sql);
 $totalnum=mysql_num_rows($result);
 //每页显示条数
-$pagesize=24;
-//$pagesize=$_GET['pagesize'];
+$pagesize=30;
 //总共有几页
 $maxpage=ceil($totalnum/$pagesize);
 $page=isset($_GET['page'])?$_GET['page']:1;
@@ -58,7 +57,6 @@ $res=mysql_query($sql1);
 
 
 <style> 
-
 #login_click{ margin-top:10px; padding-left:12px; height:15px;}  
 #login_click a   
 {  
@@ -109,10 +107,12 @@ a:active {color: #0000FF} /* 选定的链接 */
 </head>
 
 <body>
-<div style="font-size:15px;font-weight:bold;padding-top:5px;padding-left:10px;padding-bottom:3px;color:#ff6700">小米主题商店壁纸列表</div>
 
-<div id=login_click style="font-size:12px;padding-top:0px;padding-left:10px;padding-bottom:25px;">
+<div style="font-size:15px;font-weight:bold;padding-top:5px;padding-left:30px;padding-bottom:3px;color:#ff6700">小米主题商店壁纸列表</div>
+
+<div id=login_click style="font-size:12px;padding-top:0px;padding-left:30px;padding-bottom:25px;">
 <form action="thumb.php" method="get">
+
 标题：<input style="background:transparent;border:0.5px solid #ff6700;width:100px;height:15px;font-size:12px" type="text" name="title" value="<?php echo $_GET['title']?>" size="20" style="width: 106; height: 21">
  &nbsp;&nbsp;<input type="submit" id="submitButton" value="搜索">&nbsp;&nbsp;
  <input type="button" id="submitButton" value="显示所有" onclick="window.location='thumb.php'">
@@ -120,35 +120,39 @@ a:active {color: #0000FF} /* 选定的链接 */
 </div>
 
 
-<div style="font-size:12px;padding-left:10px">
+<div style="padding-left:20px">
 <?php while($row= mysql_fetch_assoc($res)){?>
-<tr>
 <?php 
+echo '<div style="font-size:12px;padding-left:10px;padding-bottom:5px;margin:0 atuo;float:left">';
 $thumbnail = str_replace('/w965/','/h160/',$row[url]);
-echo '<a href="'.$row[url].'" title="'.$row[title].'" target="_blank"><img src="'.$thumbnail.'"></a>';
+//echo '<a href="'.$row[url].'" title="标题：'.$row[title].'&#13;大小：'.$row[size].'" target="_blank"><img src="'.$thumbnail.'"></a>';
+echo '<a href="'.$row[dir].'" title="标题：'.$row[title].'&#13;大小：'.$row[size].'" target="_blank"><img src="'.$thumbnail.'"></a>';
+echo '</div>';
+
 ?>
-</tr>
 <?php }?>
 </div>
 
 
-<div id=login_click style="float:center;font-size:12px;padding-top:10px;padding-left:15px;padding-bottom:5px;text-align:center">
+<div style="clear:both">
+<div id=login_click style="font-size:12px;padding-top:10px;padding-left:15px;padding-bottom:5px;text-align:center">
 <?php
-echo "<a href='thumb.php?page=1{$url}'><span>首页</span></a>";
-echo "<a href='thumb.php?page=".($page-1)."{$url}'><span>上一页</span></a>";
-echo "<a href='thumb.php?page=".($page+1)."{$url}'><span>下一页</span></a>";
-echo "<a href='thumb.php?page={$maxpage}{$url}'><span>尾页</span></a>";
-echo " <span>当前{$page}/{$maxpage}页   共{$totalnum}条</span>";
+echo "<a href='thumb.php?page=1{$url}'>首页</a>";
+echo "<a href='thumb.php?page=".($page-1)."{$url}'>上一页</a>";
+echo "<a href='thumb.php?page=".($page+1)."{$url}'>下一页</a>";
+echo "<a href='thumb.php?page={$maxpage}{$url}'>尾页</a>";
+echo " 当前{$page}/{$maxpage}页   共{$totalnum}条";
 ?>
 </div>
 
 
-<div id=login_click style="float:center;font-size:12px;padding-top:0px;padding-left:15px;padding-bottom:20px;text-align:center">
-<form action="thumb.php" method="get"><span>跳转到第: &nbsp;&nbsp<input style="background:transparent;border:0.5px solid #ff6700;width:40px;height:15px;font-size:12px" type="text" name="page" value="<?php echo $_GET['page']?>" size="3">&nbsp;&nbsp页&nbsp;&nbsp;&nbsp;</span><input type="submit" id="submitButton" value="确定"></form>
+<div id=login_click style="font-size:12px;padding-top:0px;padding-left:15px;padding-bottom:20px;text-align:center">
+<form action="thumb.php" method="get">跳转到第: &nbsp;&nbsp<input style="background:transparent;border:0.5px solid #ff6700;width:40px;height:15px;font-size:12px" type="text" name="page" value="<?php echo $_GET['page']?>" size="3">&nbsp;&nbsp页&nbsp;&nbsp;&nbsp;<input type="submit" id="submitButton" value="确定"></form>
 </div>
 
 <div style="font-size:12px;font-weight:bold;text-align:center;padding-top:10px;padding-left:20px;padding-bottom:20px;color:#ffffff;background:#f2f2f2;height:8px">
 <a href="http://www.xiaomi.com" target="_blank">探索黑科技，小米为发烧而生！</a>
+</div>
 </div>
 
 </body>

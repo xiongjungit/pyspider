@@ -52,13 +52,17 @@ $res=mysql_query($sql1);
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">  
-<head runat="server">  
+<head runat="server"> 
+
+<script type="text/JavaScript">
+</script>
+
+
 <meta charset="UTF-8">
 <title>python爬虫结果显示</title>
 
 
 <style> 
-
 #parent {
     background: url('yourimage') no-repeat;
 	font-size: 12px
@@ -149,14 +153,10 @@ a:active {color: #0000FF} /* 选定的链接 */
 <body>
 
 
-<div style="font-size:15px;font-weight:bold;padding-top:5px;padding-left:10px;padding-bottom:3px;color:#ff6700">小米主题商店壁纸列表</div>
+<div style="font-size:15px;font-weight:bold;padding-top:5px;padding-left:60px;padding-bottom:3px;color:#ff6700">小米主题商店壁纸列表</div>
 
 
-<!--
-<div style="display:inline-block"> 
--->
-
-<div id=login_click style="float:left;font-size:12px;padding-top:0px;padding-left:10px;padding-bottom:25px;">
+<div id=login_click style="float:left;font-size:12px;padding-top:0px;padding-left:60px;padding-bottom:25px;">
 <form action="index.php" method="get">
 
 标题：<input style="background:transparent;border:0.5px solid #ff6700;width:100px;height:15px;font-size:12px" type="text" name="title" value="<?php echo $_GET['title']?>" size="20" style="width: 106; height: 21">
@@ -164,37 +164,10 @@ a:active {color: #0000FF} /* 选定的链接 */
  <input type="button" id="submitButton" value="显示所有" onclick="window.location='index.php'">
 </form>
 </div>
-
-<!--
-
-<div id=login_click style="float:left;font-size:12px;padding-top:0px;padding-left:15px;padding-bottom:15px;">
-
-
-    <form action="index.php" method="GET"> 
-    <label>每页显示条数</label> 
-    <select name="pagesize">
-	<option value='' selected>-请选择-</option>
-    <option value="20">20</option> 
-    <option value="30">30</option> 
-	<option value="50">50</option> 
-	<option value="100">100</option> 
-	<option value="200">200</option> 
-    </select> 
-	<input type="submit" id="submitButton" value="确定">
-    </form> 
-
-</div>
-
--->
-
-<!--
-</div>
--->
-
 <br/>
 
 
-<div style="font-size:12px;padding-left:10px">
+<div style="font-size:12px;padding-left:60px">
 <table class="tb">
 
 
@@ -208,12 +181,13 @@ a:active {color: #0000FF} /* 选定的链接 */
 <tr>
  <td style="bgcolor:#ff6700"><?php echo $row['id'] ?></td>
  <td style="bgcolor:#ff6700"><?php echo $row['title'] ?></td>
- <!--
- <td><?php echo $row['url'] ?></td>
- -->
-<?php 
+ 
+ 
+<?php
+$thumbnail = str_replace('/w965/','/h160/',$row[url]);
 echo '<td style="bgcolor:#ff6700"><a href="'.$row[url].'" target="_blank">'.$row[url].'</a></td>';
 ?>
+
  <td style="bgcolor:#ff6700"><?php echo $row['size'] ?></td>
 </tr>
 <?php }?>
