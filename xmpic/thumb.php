@@ -124,9 +124,13 @@ a:active {color: #0000FF} /* 选定的链接 */
 <?php while($row= mysql_fetch_assoc($res)){?>
 <?php 
 echo '<div style="font-size:12px;padding-left:10px;padding-bottom:5px;margin:0 atuo;float:left">';
-$thumbnail = str_replace('/w965/','/h160/',$row[url]);
-//echo '<a href="'.$row[url].'" title="标题：'.$row[title].'&#13;大小：'.$row[size].'" target="_blank"><img src="'.$thumbnail.'"></a>';
-echo '<a href="'.$row[dir].'" title="标题：'.$row[title].'&#13;大小：'.$row[size].'" target="_blank"><img src="'.$thumbnail.'"></a>';
+
+$thumbnail = str_replace("/w965/","/h160/",$row[wurl]);
+//$localurl= preg_replace('/http:\/\/file.market.xiaomi.com\/thumbnail\/jpeg\/w965\/[a-z0-9]{0,3}\/{0,1}/','http://1.2.3.4/pri/html/xmpic/w965/',$row[url]);
+//$filename = str_replace('/home/www/web/python/xmpic/image/','',$row[dir]);
+//$localimageurl = substr($localurl, 0, 45);
+echo '<a href="'.$row[wurl].'" title="标题：'.$row[title].'&#13;大小：'.$row[size].'" target="_blank"><img src="'.$thumbnail.'"></a>';
+//echo '<a href="'.$localimageurl.'" title="标题：'.$row[title].'&#13;大小：'.$row[size].'" target="_blank"><img src="'.$thumbnail.'"></a>';
 echo '</div>';
 
 ?>

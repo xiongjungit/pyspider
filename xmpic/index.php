@@ -30,7 +30,7 @@ $sql="select * from xmpic $where ";
 $result=mysql_query($sql);
 $totalnum=mysql_num_rows($result);
 //每页显示条数
-$pagesize=25;
+$pagesize=30;
 //$pagesize=$_GET['pagesize'];
 //总共有几页
 $maxpage=ceil($totalnum/$pagesize);
@@ -184,8 +184,8 @@ a:active {color: #0000FF} /* 选定的链接 */
  
  
 <?php
-$thumbnail = str_replace('/w965/','/h160/',$row[url]);
-echo '<td style="bgcolor:#ff6700"><a href="'.$row[url].'" target="_blank">'.$row[url].'</a></td>';
+$thumbnail = str_replace('/w965/','/h160/',$row[turl]);
+echo '<td style="bgcolor:#ff6700"><a href="'.$row[wurl].'" target="_blank">'.$row[wurl].'</a></td>';
 ?>
 
  <td style="bgcolor:#ff6700"><?php echo $row['size'] ?></td>
